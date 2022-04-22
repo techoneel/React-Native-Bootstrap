@@ -2,13 +2,22 @@
   "name": "react-native-bootstrap",
   "version": "1.0.0",
   "description": "This package will help you use bootstrap layout engine in react native.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\" \"src/*.ts\" \"src/*.js\"",
-    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://techoneel: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@github.com/techoneel/React-Native-Bootstrap.git"
@@ -21,7 +30,10 @@
   },
   "homepage": "https://github.com/techoneel/React-Native-Bootstrap#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
     "prettier": "^2.6.2",
+    "ts-jest": "^27.1.4",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.6.3"

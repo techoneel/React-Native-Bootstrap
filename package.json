@@ -1,5 +1,5 @@
 {
-  "name": "react-native-bootstrap",
+  "name": "react-native-bootstrap-ui",
   "version": "1.0.0",
   "description": "This package will help you use bootstrap layout engine in react native.",
   "main": "lib/index.js",
